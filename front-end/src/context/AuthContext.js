@@ -7,7 +7,7 @@ const AuthContextProvider = (props) => {
     const [loggedIn, setLoggedIn] = useState(undefined);
 
     async function getLoggedIn() {
-        const loggedInRes = await axios.get('http://localhost:5000/user/loggedIn');
+        const loggedInRes = await axios.get('http://localhost:5000/user/loggedIn', {withCredentials: true});
         setLoggedIn(loggedInRes.data);
     }
 
