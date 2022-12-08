@@ -65,12 +65,11 @@ const loginUser = async (req, res) => {
         if (!errors.isEmpty()){
             return res.status(400).json({errors: errors.array() });
         }
-
         const { email } = req.body;
 
         // Find user
-        const existingUser = await users.findone({email});
-
+        const existingUser = await users.findOne({email});
+        
         // Sign token
         const token = jwt.sign(
             {
@@ -104,7 +103,7 @@ const logoutUser = async (req, res) => {
 const checkLoggedIn = async (req, res) => {
     try {
         const token = req.cookies.token;
-
+        console.log(token);
         // Check if token exists
         if(!token){
             return res.json(false);
