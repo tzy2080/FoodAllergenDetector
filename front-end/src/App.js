@@ -1,9 +1,7 @@
 import './App.css';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { AuthContextProvider } from './context/AuthContext';
+import Routing from './Routing';
 
 const theme = createTheme({
   palette: {
@@ -15,17 +13,13 @@ const theme = createTheme({
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <div className="App">
-          <BrowserRouter>
-            <Navbar />
-            <Routes>
-              <Route path='/' element={<Home />} />
-            </Routes>
-            <Footer />
-          </BrowserRouter>
-      </div>
-    </ThemeProvider>
+    <AuthContextProvider>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+            <Routing />
+        </div>
+      </ThemeProvider>
+    </AuthContextProvider>
   );
 }
 
