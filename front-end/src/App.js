@@ -1,5 +1,5 @@
 import './App.css';
-import { createTheme, ThemeProvider } from '@mui/material';
+import { createTheme, ThemeProvider, Box } from '@mui/material';
 import { AuthContextProvider } from './context/AuthContext';
 import Routing from './Routing';
 
@@ -15,9 +15,9 @@ function App() {
   return (
     <AuthContextProvider>
       <ThemeProvider theme={theme}>
-        <div className="App">
-            <Routing />
-        </div>
+        <Box sx={{display: 'flex', flexDirection: 'column', minHeight: '100vh'}}>
+          <Routing />
+        </Box>
       </ThemeProvider>
     </AuthContextProvider>
   );

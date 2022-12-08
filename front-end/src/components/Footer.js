@@ -9,7 +9,7 @@ const Footer = () => {
     const { loggedIn } = useContext(AuthContext);
 
     return ( 
-        <footer>
+        <Box component='footer' sx={{mt: 'auto'}} >
             <Box sx={{backgroundColor:'primary.dark', minHeight: '20vh'}}>
                 <Container maxWidth='lg'>
                     <Grid container pt={6} pb={10}>
@@ -62,7 +62,7 @@ const Footer = () => {
                     </Grid>
                 </Container>
             </Box>
-        </footer>
+        </Box>
      );
 }
  
