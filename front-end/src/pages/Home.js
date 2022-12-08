@@ -1,3 +1,4 @@
+import { Link as RouterLink } from 'react-router-dom';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
@@ -26,7 +27,9 @@ const Home = () => {
                     <Grid item xs={12} md={6} mt={{xs: 5, md: 0}} textAlign={{xs: 'center', md: 'left'}}>
                         <Typography variant='h4' sx={{fontWeight: 500, mb:2}}>Welcome to AllergenDetector</Typography>
                         <Typography variant='h5' sx={{fontWeight: 400, mb:5}}>Easily identify allergens present in food products</Typography>
-                        <Button variant="contained" disableElevation size="large" sx={{fontSize: '1rem', fontWeight: 700, backgroundColor: 'secondary.main'}} href="#contained-buttons">View Product Scanner</Button>
+                        <Button component={RouterLink} variant="contained" disableElevation size="large" sx={{fontSize: '1rem', fontWeight: 700, backgroundColor: 'secondary.main'}} to="/Productscanner">
+                            View Product Scanner
+                        </Button>
                     </Grid>
                 </Grid>
                 {/* Feature section */}
@@ -50,7 +53,9 @@ const Home = () => {
                                 <Typography variant='h5' sx={{fontWeight: 500, mb:2, lineHeight: 2}}>Scan and identify allergens</Typography>
                             </Stack>
                             <Typography variant='h6' sx={{fontWeight: 400, mb: 4}}>Easily identify allergens by simply scanning the barcode of the food product</Typography>
-                            <Button variant="contained" disableElevation size="medium" sx={{fontSize: '1rem', fontWeight: 700, backgroundColor: 'secondary.main'}} href="#contained-buttons" endIcon={<ArrowForwardIcon />}>Try it now</Button>
+                            <Button component={RouterLink} variant="contained" disableElevation size="medium" sx={{fontSize: '1rem', fontWeight: 700, backgroundColor: 'secondary.main'}} to="/Productscanner" endIcon={<ArrowForwardIcon />}>
+                                Try it now
+                            </Button>
                         </Grid>
                     </Grid>
                     {/* Allergen profile */}
