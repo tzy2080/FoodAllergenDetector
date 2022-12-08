@@ -103,7 +103,6 @@ const logoutUser = async (req, res) => {
 const checkLoggedIn = async (req, res) => {
     try {
         const token = req.cookies.token;
-        console.log(token);
         // Check if token exists
         if(!token){
             return res.json(false);
