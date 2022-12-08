@@ -20,7 +20,7 @@ const Home = () => {
         <Container>
             <Box>
                 {/* Welcome section */}
-                <Grid container mt={20} alignItems='center'>
+                <Grid container mt={15} alignItems='center'>
                     <Grid item xs={12} md={6} textAlign={{xs: 'center', md: 'left'}}>
                         <img src={foodAllergy} alt='food allergy' style={{maxWidth: '100%', height: 'auto'}} width={380} height={380}/>
                     </Grid>
