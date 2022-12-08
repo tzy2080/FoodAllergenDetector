@@ -1,12 +1,13 @@
 import * as React from 'react';
+import { useContext } from 'react';
+import AuthContext from '../context/AuthContext';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useScrollTrigger, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box, AppBar } from '@mui/material';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import ScrollTopComponent from './ScrollTop';
-
-const pages = ['Product Scanner', 'My Allergens', 'Login/Logout'];
+import Logout from './Logout';
 
 // Change appearance of navbar when scrolled
 const ScrollHandler = props => {
@@ -32,6 +33,8 @@ ScrollHandler.propTypes = {
 };
 
 const NavBar = (props) => {
+  const { loggedIn } = useContext(AuthContext);
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -94,11 +97,32 @@ const NavBar = (props) => {
                     display: { xs: 'block', md: 'none' },
                   }}
                 >
-                  {pages.map((page) => (
-                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center"><Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>Home</Link></Typography>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center"><Link to='/Productscanner' style={{textDecoration: 'none', color: 'inherit'}}>Product Scanner</Link></Typography>
+                  </MenuItem>
+                  {loggedIn && 
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center"><Link to='/Profile' style={{textDecoration: 'none', color: 'inherit'}}>Allergen Profile</Link></Typography>
                     </MenuItem>
-                  ))}
+                  }
+                  {!loggedIn &&
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center"><Link to='/Login' style={{textDecoration: 'none', color: 'inherit'}}>Login</Link></Typography>
+                    </MenuItem>
+                  }
+                  {!loggedIn &&
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center"><Link to='/Register' style={{textDecoration: 'none', color: 'inherit'}}>Register</Link></Typography>
+                    </MenuItem>
+                  }
+                  {loggedIn && 
+                    <MenuItem onClick={handleCloseNavMenu}>
+                      <Typography textAlign="center"><Link to='/' onClick={ Logout } style={{textDecoration: 'none', color: 'inherit'}}>Logout</Link></Typography>
+                    </MenuItem>
+                  }
                 </Menu>
               </Box>
               <FoodBankIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, fontSize: '2rem' }} />
@@ -122,15 +146,32 @@ const NavBar = (props) => {
                 AllergenDetector
               </Typography>
               <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-                {pages.map((page) => (
-                  <Button
-                    key={page}
-                    onClick={handleCloseNavMenu}
-                    sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}
-                  >
-                    {page}
+                <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                  <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>Home</Link>
+                </Button>
+                <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                  <Link to='/Productscanner' style={{textDecoration: 'none', color: 'inherit'}}>Product Scanner</Link>
+                </Button>
+                {loggedIn &&
+                  <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                    <Link to='/Profile' style={{textDecoration: 'none', color: 'inherit'}}>Allergen Profile</Link>
                   </Button>
-                ))}
+                }
+                {!loggedIn &&
+                  <>
+                    <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                      <Link to='/Login' style={{textDecoration: 'none', color: 'inherit'}}>Login</Link>
+                    </Button>
+                    <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                      <Link to='/Register' style={{textDecoration: 'none', color: 'inherit'}}>Register</Link>
+                    </Button>
+                  </>
+                }
+                {loggedIn &&
+                  <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                    <Link to='/' onClick={ Logout } style={{textDecoration: 'none', color: 'inherit'}}>Logout</Link>
+                  </Button>
+                }
               </Box>
             </Toolbar>
           </Container>
