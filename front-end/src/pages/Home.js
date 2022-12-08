@@ -31,6 +31,7 @@ const Home = () => {
                 </Grid>
                 {/* Feature section */}
                 <Grid container mt={15} alignItems='center'>
+                    {/* Title */}
                     <Grid item xs={12} mb={5} textAlign='center'>
                         <Stack direction='row' justifyContent='center'>
                             <StarsIcon sx={{color:'primary.dark', fontSize:'2.8rem', mr: 2}}/>
@@ -38,6 +39,7 @@ const Home = () => {
                         </Stack>
                         <Typography variant='h5' mt={1} sx={{fontWeight: 400}}>Various handy features that our website provides</Typography>
                     </Grid>
+                    {/* Scan and identify allergens */}
                     <Grid container mb={10} justifyContent='center' alignItems='center'>
                         <Grid item xs={12} md={6} mb={{xs:1, md:0}} textAlign={{xs: 'center', md: 'left'}}>
                             <img src={barcodeScan} alt='Scan barcode' style={{maxWidth: '100%', height: 'auto'}} width={500} height={500}/>
@@ -51,18 +53,20 @@ const Home = () => {
                             <Button variant="contained" disableElevation size="medium" sx={{fontSize: '1rem', fontWeight: 700, backgroundColor: 'secondary.main'}} href="#contained-buttons" endIcon={<ArrowForwardIcon />}>Try it now</Button>
                         </Grid>
                     </Grid>
+                    {/* Allergen profile */}
                     <Grid container mb={10} justifyContent='center' alignItems='center' direction={{xs:'column-reverse', md:'row'}}>
                         <Grid item xs={12} md={6} textAlign={{xs: 'center', md: 'left'}}>
                             <Stack direction={{xs:'column', sm:'row'}} justifyContent={{xs: 'center', md: 'left'}} alignItems={{xs:'center', sm: 'flex-start'}}>
                                 <AccountCircleIcon sx={{fontSize: '3rem', mr: 2, color: 'secondary.dark'}} />
-                                <Typography variant='h5' sx={{fontWeight: 500, mb:2, lineHeight: 2}}>Personalised allergens</Typography>
+                                <Typography variant='h5' sx={{fontWeight: 500, mb:2, lineHeight: 2}}>Allergen profile</Typography>
                             </Stack>
-                            <Typography variant='h6' sx={{fontWeight: 400}}>Determine if the product is suitable for you based on your specified allergens</Typography>
+                            <Typography variant='h6' sx={{fontWeight: 400}}>Determine if the product is suitable for you based on the allergens specified in your profile</Typography>
                         </Grid>
                         <Grid item xs={12} md={6} mb={{xs:1, md:0}} textAlign={{xs: 'center', md: 'right'}}>
                             <img src={allergen} alt='Personalised allergen' style={{maxWidth: '100%', height: 'auto'}} width={450} height={450}/>
                         </Grid>
                     </Grid>
+                    {/* Identify nutritional values */}
                     <Grid container mb={20} justifyContent='center' alignItems='center'>
                         <Grid item xs={12} md={6} mb={{xs:1, md:0}} textAlign={{xs: 'center', md: 'left'}}>
                             <img src={nutritionValue} alt='Nutritional values' style={{maxWidth: '100%', height: 'auto'}} width={450} height={450}/>
