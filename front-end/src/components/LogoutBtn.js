@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
-import { Typography, Button, Link } from '@mui/material';
+import { Button, Link } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 
 const LogoutBtn = ({link}) => {
