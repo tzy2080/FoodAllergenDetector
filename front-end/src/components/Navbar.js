@@ -3,11 +3,11 @@ import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useScrollTrigger, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box, AppBar } from '@mui/material';
+import { useScrollTrigger, MenuItem, Button, Container, Menu, Typography, IconButton, Toolbar, Box, AppBar, Link } from '@mui/material';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 import ScrollTopComponent from './ScrollTop';
-import Logout from './Logout';
+import LogoutBtn from './LogoutBtn';
 
 // Change appearance of navbar when scrolled
 const ScrollHandler = props => {
@@ -65,7 +65,7 @@ const NavBar = (props) => {
                   color: 'inherit'
                 }}
               >
-                <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>AllergenDetector</Link>
+                <Link component={RouterLink} to='/' style={{textDecoration: 'none', color: 'inherit'}}>AllergenDetector</Link>
               </Typography>
 
               <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -98,29 +98,29 @@ const NavBar = (props) => {
                   }}
                 >
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center"><Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>Home</Link></Typography>
+                    <Typography textAlign="center"><Link component={RouterLink} to='/' style={{textDecoration: 'none', color: 'inherit'}}>Home</Link></Typography>
                   </MenuItem>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center"><Link to='/Productscanner' style={{textDecoration: 'none', color: 'inherit'}}>Product Scanner</Link></Typography>
+                    <Typography textAlign="center"><Link component={RouterLink} to='/Productscanner' style={{textDecoration: 'none', color: 'inherit'}}>Product Scanner</Link></Typography>
                   </MenuItem>
                   {loggedIn && 
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center"><Link to='/Profile' style={{textDecoration: 'none', color: 'inherit'}}>Allergen Profile</Link></Typography>
+                      <Typography textAlign="center"><Link component={RouterLink} to='/Profile' style={{textDecoration: 'none', color: 'inherit'}}>Allergen Profile</Link></Typography>
                     </MenuItem>
                   }
                   {!loggedIn &&
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center"><Link to='/Login' style={{textDecoration: 'none', color: 'inherit'}}>Login</Link></Typography>
+                      <Typography textAlign="center"><Link component={RouterLink} to='/Login' style={{textDecoration: 'none', color: 'inherit'}}>Login</Link></Typography>
                     </MenuItem>
                   }
                   {!loggedIn &&
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center"><Link to='/Register' style={{textDecoration: 'none', color: 'inherit'}}>Register</Link></Typography>
+                      <Typography textAlign="center"><Link component={RouterLink} to='/Register' style={{textDecoration: 'none', color: 'inherit'}}>Register</Link></Typography>
                     </MenuItem>
                   }
                   {loggedIn && 
                     <MenuItem onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center"><Link to='/' onClick={ Logout } style={{textDecoration: 'none', color: 'inherit'}}>Logout</Link></Typography>
+                      <Typography textAlign="center"><LogoutBtn link={true}/></Typography>
                     </MenuItem>
                   }
                 </Menu>
@@ -146,31 +146,29 @@ const NavBar = (props) => {
                 AllergenDetector
               </Typography>
               <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
-                <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
-                  <Link to='/' style={{textDecoration: 'none', color: 'inherit'}}>Home</Link>
+                <Button onClick={handleCloseNavMenu} component={RouterLink} to='/' sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                  Home
                 </Button>
-                <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
-                  <Link to='/Productscanner' style={{textDecoration: 'none', color: 'inherit'}}>Product Scanner</Link>
+                <Button onClick={handleCloseNavMenu} component={RouterLink} to='/Productscanner' sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                  Product Scanner
                 </Button>
                 {loggedIn &&
-                  <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
-                    <Link to='/Profile' style={{textDecoration: 'none', color: 'inherit'}}>Allergen Profile</Link>
+                  <Button onClick={handleCloseNavMenu} component={RouterLink} to='/Profile' sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                    Allergen Profile
                   </Button>
                 }
                 {!loggedIn &&
                   <>
-                    <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
-                      <Link to='/Login' style={{textDecoration: 'none', color: 'inherit'}}>Login</Link>
+                    <Button onClick={handleCloseNavMenu} component={RouterLink} to='/Login' sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                      Login
                     </Button>
-                    <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
-                      <Link to='/Register' style={{textDecoration: 'none', color: 'inherit'}}>Register</Link>
+                    <Button onClick={handleCloseNavMenu} component={RouterLink} to='/Register' sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
+                      Register
                     </Button>
                   </>
                 }
                 {loggedIn &&
-                  <Button onClick={handleCloseNavMenu} sx={{ my: 2, mr: 2, color: 'inherit', display: 'block', fontWeight:700, fontSize: '0.95rem' }}>
-                    <Link to='/' onClick={ Logout } style={{textDecoration: 'none', color: 'inherit'}}>Logout</Link>
-                  </Button>
+                  <LogoutBtn link={false}/>
                 }
               </Box>
             </Toolbar>

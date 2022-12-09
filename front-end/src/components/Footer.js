@@ -1,7 +1,7 @@
 import { Grid, Container, Box, Stack, Typography } from '@mui/material';
 import { Link  } from 'react-router-dom';
 import FoodBankIcon from '@mui/icons-material/FoodBank';
-import Logout from './Logout';
+import LogoutBtn from './LogoutBtn';
 import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 
@@ -54,7 +54,7 @@ const Footer = () => {
                                 {
                                     loggedIn &&
                                     <Typography variant='body1' sx={{color: '#fff', fontWeight: 500}}>
-                                        <Link to='/' onClick={ Logout } style={{textDecoration: 'none', color: 'inherit'}}>Logout</Link>
+                                        <LogoutBtn link={true}/>
                                     </Typography>
                                 }
                             </Stack>
