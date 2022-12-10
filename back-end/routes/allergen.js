@@ -16,4 +16,7 @@ router.post('/add', auth, controller.addAllergen);
 // Delete allergen
 router.delete('/delete/:id', auth, controller.deleteAllergen);
 
+// Get allergen list
+router.get('/allergens', auth, controller.getAllergenList);
+
 module.exports = router;
