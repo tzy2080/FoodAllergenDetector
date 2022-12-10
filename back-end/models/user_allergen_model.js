@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 
 const userAllergenSchema = new Schema({
     userId : {type: Schema.Types.ObjectId, required: true},
-    allergen: {type: String, required: true}
+    allergenId: {type: String, required: true},
+    allergenName: {type: String, required: true}
 });
 
 const userAllergen = mongoose.model('UserAllergen', userAllergenSchema);
