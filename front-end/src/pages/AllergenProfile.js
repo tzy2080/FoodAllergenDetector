@@ -165,8 +165,8 @@ const AllergenProfile = () => {
                 </Snackbar>
                 {/* Title */}
                 <Stack direction='row' alignItems='center' mb={3}>
-                    <AccountCircleIcon sx={{ fontSize: '3rem', color: 'primary.dark', mr: 1 }} />
-                    <Typography variant='h5' sx={{ fontWeight: 500 }}>Allergen Profile</Typography>
+                    <AccountCircleIcon sx={{ fontSize: '2.5rem', color: 'primary.dark', mr: 1 }} />
+                    <Typography variant='h6' sx={{ fontWeight: 500 }}>Allergen Profile</Typography>
                 </Stack>
                 {/* Allergen search bar */}
                 <Grid container justifyContent='center' mt={3} alignItems='center'>
@@ -212,7 +212,7 @@ const AllergenProfile = () => {
                 {/* Allergen table */}
                 <Grid container justifyContent='center' textAlign='center'>
                     <Grid item xs={12} md={8} my={6}>
-                        <TableContainer component={Paper} sx={{ px: 2, py: 1 }}>
+                        <TableContainer component={Paper} sx={{ px: 1, py: 1 }}>
                             <Typography variant='subtitle1' sx={{ fontWeight: 500, fontSize: '1.05rem' }}>My allergens</Typography>
                             <Table aria-label="allergen table">
                                 <TableHead>
