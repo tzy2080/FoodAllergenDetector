@@ -115,23 +115,25 @@ const AllergenProfile = () => {
     const submitAllergens = (e) => {
         e.preventDefault();
 
-        const data = {
-            allergens: value
+        // Only allow submit if at least one allergen is selected
+        if (value.length !== 0){
+            const data = {
+                allergens: value
+            }
+            const addNewAllergen = async () => {
+                await axios.post('http://localhost:5000/allergen/add', data, { withCredentials: true })
+                    .then((res) => {
+                        setAddAllergen(true);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                    })
+            }
+            setValue([]);
+            setInputValue('');
+            addNewAllergen();
+            handleAddAlertOpen();
         }
-
-        const addNewAllergen = async () => {
-            await axios.post('http://localhost:5000/allergen/add', data, { withCredentials: true })
-                .then((res) => {
-                    setAddAllergen(true);
-                })
-                .catch((error) => {
-                    console.log(error);
-                })
-        }
-        setValue([]);
-        setInputValue('');
-        addNewAllergen();
-        handleAddAlertOpen();
     }
 
     // Delete allergen
@@ -200,7 +202,11 @@ const AllergenProfile = () => {
                 {/* Add allergen button */}
                 <Grid container justifyContent='center' textAlign='center'>
                     <Grid item xs={12} md={6}>
-                        <Button variant='contained' onClick={submitAllergens} size='large' endIcon={<AddIcon />}>Add allergens</Button>
+                        <Tooltip title={value.length === 0 ? "Please select an allergen in the search field": ""}>
+                            <span>
+                                <Button variant='contained' onClick={submitAllergens} size='large' endIcon={<AddIcon />} disabled={value.length === 0 ? true : false}>Add allergens</Button>
+                            </span>
+                        </Tooltip>
                     </Grid>
                 </Grid>
                 {/* Allergen table */}
