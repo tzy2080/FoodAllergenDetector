@@ -24,6 +24,8 @@ Delete allergen
 ![image](https://user-images.githubusercontent.com/118338730/208847868-a93e4f7c-3518-4914-8ffc-6af2386bbc13.png)
 ### Product scanner
 ![image](https://user-images.githubusercontent.com/118338730/208848119-4ab45ee7-fbcc-47cd-a1c9-428f6a0b735a.png)
+
+Display allergens, nutrient levels and nutriscore of food products
 ![image](https://user-images.githubusercontent.com/118338730/208848542-cf531ed7-e1db-46f1-adad-54701bc8bc21.png)
 
 Determine if the product is suitable based on the specified allergens in the allergen profile
