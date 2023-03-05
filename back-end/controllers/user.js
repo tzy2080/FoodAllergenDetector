@@ -10,6 +10,7 @@ const users = userModel.User;
 // Json web token
 const jwt = require('jsonwebtoken');
 
+// Again, redundant comments. Variable name is good enough
 // Create new user
 const createUser = async (req, res) => {
     try {
