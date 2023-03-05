@@ -1,3 +1,4 @@
+// Redundant comment
 // Import packages
 const mongoose = require('mongoose');
 

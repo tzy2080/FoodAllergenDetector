@@ -22,6 +22,9 @@ const allergenRoute = require('./routes/allergen');
 app.use('/user', userRoute);
 app.use('/allergen', allergenRoute);
 
+// In practice, the only reason to leave in commented code is because the change is expected to be temporary
+// Otherwise, we'd remove it. If we want it back, there's the commit history. 
+// Tip: Make a change here then use Git Lens with vscode to see the commit history. It's like a time machine 
 // Update allergen list database
 // const getAllergens = require('./retrieveAllergen');
 // getAllergens();

@@ -4,6 +4,7 @@ const userAllergen = userAllergenModel.userAllergen;
 const allergenModel = require('../models/allergen_model');
 const allergen = allergenModel.Allergen;
 
+// In practice, comments like this are redundant: The variable name is self-explaining. Good choice of variable name by the way =)
 // Get all allergens
 const getAllergens = async (req, res) => {
     try {
