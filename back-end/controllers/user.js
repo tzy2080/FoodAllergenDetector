@@ -25,7 +25,6 @@ const createUser = async (req, res) => {
         const newUser = new users({
             username,
             email,
-            password,
             passwordHash,
             resetPasswordToken: undefined,
             resetPasswordExpire: undefined
