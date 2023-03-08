@@ -1,13 +1,10 @@
-// Packages
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');
 const { check } = require('express-validator');
 
-// Model 
 const userModel = require('../models/user_model');
 const users = userModel.User;
 
-// Controller
 const controller = require('../controllers/user');
 
 // Create new user

@@ -1,16 +1,12 @@
-// Packages
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 require('dotenv').config();
 
-// Model
 const userModel = require('../models/user_model');
 const users = userModel.User;
 
-// Json web token
 const jwt = require('jsonwebtoken');
 
-// Create new user
 const createUser = async (req, res) => {
     try {
         // Check if all inputs are valid
@@ -57,7 +53,6 @@ const createUser = async (req, res) => {
     }
 }
 
-// Login
 const loginUser = async (req, res) => {
     try {
         // Check if all inputs are valid
@@ -89,7 +84,6 @@ const loginUser = async (req, res) => {
     }
 }
 
-// Logout
 const logoutUser = async (req, res) => {
     res
         .cookie('token', '', {
@@ -99,7 +93,6 @@ const logoutUser = async (req, res) => {
         .send();
 }
 
-// Check if user is logged in
 const checkLoggedIn = async (req, res) => {
     try {
         const token = req.cookies.token;

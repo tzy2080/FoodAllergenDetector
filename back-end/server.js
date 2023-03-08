@@ -22,10 +22,6 @@ const allergenRoute = require('./routes/allergen');
 app.use('/user', userRoute);
 app.use('/allergen', allergenRoute);
 
-// Update allergen list database
-// const getAllergens = require('./retrieveAllergen');
-// getAllergens();
-
 // Server
 mongoose.connect(process.env.DATABASE_CONNECTION_STRING)
     .then(() => {

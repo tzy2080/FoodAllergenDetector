@@ -1,10 +1,8 @@
-// Model
 const userAllergenModel = require('../models/user_allergen_model');
 const userAllergen = userAllergenModel.userAllergen;
 const allergenModel = require('../models/allergen_model');
 const allergen = allergenModel.Allergen;
 
-// Get all allergens
 const getAllergens = async (req, res) => {
     try {
         const userId = req.user;
@@ -18,7 +16,6 @@ const getAllergens = async (req, res) => {
     }
 }
 
-// Add new allergen
 const addAllergen = async (req, res) => {
     try {
         const userId = req.user;
@@ -48,7 +45,6 @@ const addAllergen = async (req, res) => {
     }
 }
 
-// Delete allergen
 const deleteAllergen = async (req, res) => {
     try {
         const userId = req.user;
@@ -74,7 +70,6 @@ const deleteAllergen = async (req, res) => {
     }
 }
 
-// Get allergen list
 const getAllergenList = async (req, res) => {
     try {
         await allergen.find({}, {allergenId: 1, allergenName: 1, _id: 0})

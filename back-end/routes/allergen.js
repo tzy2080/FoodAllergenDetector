@@ -1,4 +1,3 @@
-// Packages
 const router = require('express').Router();
 
 // Authentication middleware

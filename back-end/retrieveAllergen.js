@@ -18,7 +18,6 @@ const getAllergens = async () => {
                     filteredAllergens.forEach(async (allergenItem) => {
                         await allergen.create([{ allergenId: allergenItem.id , allergenName: allergenItem.name}]);
                     })
-                    console.log('Allergen list updated');
                 })
                 .catch((error) => {
                     console.log(error);
