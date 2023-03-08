@@ -1,3 +1,4 @@
+// Examine for redundant comments...
 // Packages
 const router = require('express').Router();
 const bcrypt = require('bcryptjs');

@@ -25,6 +25,8 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "comment": "My little trick to add comments in json =). So... there's an eslintConfig.js here but no eslintrc.js. Plus no prettierrc.js ... did you hand format all this? =O",
+    "comment2": "I've added my fav configs for them to this PR. They'll be magic with the vscode extensions of the same name",
     "extends": [
       "react-app",
       "react-app/jest"
